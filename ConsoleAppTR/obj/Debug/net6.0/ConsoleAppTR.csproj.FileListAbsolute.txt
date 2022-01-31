@@ -1,0 +1,15 @@
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\bin\Debug\net6.0\ConsoleAppTR.exe
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\bin\Debug\net6.0\ConsoleAppTR.deps.json
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\bin\Debug\net6.0\ConsoleAppTR.runtimeconfig.json
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\bin\Debug\net6.0\ConsoleAppTR.dll
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\bin\Debug\net6.0\ref\ConsoleAppTR.dll
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\bin\Debug\net6.0\ConsoleAppTR.pdb
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.csproj.AssemblyReference.cache
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.AssemblyInfoInputs.cache
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.AssemblyInfo.cs
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.csproj.CoreCompileInputs.cache
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.dll
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ref\ConsoleAppTR.dll
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.pdb
+D:\DotnetWorkspace\WorkProject\ConsoleAppTR\obj\Debug\net6.0\ConsoleAppTR.genruntimeconfig.cache
