@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DotnetWorkspace\\WorkProject\\ConsoleAppTR\\ConsoleAppTR.csproj": {}
+    "E:\\DotnetWorkspace\\Assignment\\ConsoleAppTR\\ConsoleAppTR.csproj": {}
   },
   "projects": {
-    "D:\\DotnetWorkspace\\WorkProject\\ConsoleAppTR\\ConsoleAppTR.csproj": {
+    "E:\\DotnetWorkspace\\Assignment\\ConsoleAppTR\\ConsoleAppTR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DotnetWorkspace\\WorkProject\\ConsoleAppTR\\ConsoleAppTR.csproj",
+        "projectUniqueName": "E:\\DotnetWorkspace\\Assignment\\ConsoleAppTR\\ConsoleAppTR.csproj",
         "projectName": "ConsoleAppTR",
-        "projectPath": "D:\\DotnetWorkspace\\WorkProject\\ConsoleAppTR\\ConsoleAppTR.csproj",
-        "packagesPath": "C:\\Users\\oguzhan.cihan\\.nuget\\packages\\",
-        "outputPath": "D:\\DotnetWorkspace\\WorkProject\\ConsoleAppTR\\obj\\",
+        "projectPath": "E:\\DotnetWorkspace\\Assignment\\ConsoleAppTR\\ConsoleAppTR.csproj",
+        "packagesPath": "C:\\Users\\oguzc\\.nuget\\packages\\",
+        "outputPath": "E:\\DotnetWorkspace\\Assignment\\ConsoleAppTR\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\oguzhan.cihan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oguzc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

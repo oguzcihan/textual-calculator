@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\oguzhan.cihan\\.nuget\\packages\\": {}
+    "C:\\Users\\oguzc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotnetWorkspace\\WorkProject\\WorkProject\\WorkProject.csproj",
+      "projectUniqueName": "E:\\DotnetWorkspace\\Assignment\\WorkProject\\WorkProject.csproj",
       "projectName": "WorkProject",
-      "projectPath": "D:\\DotnetWorkspace\\WorkProject\\WorkProject\\WorkProject.csproj",
-      "packagesPath": "C:\\Users\\oguzhan.cihan\\.nuget\\packages\\",
-      "outputPath": "D:\\DotnetWorkspace\\WorkProject\\WorkProject\\obj\\",
+      "projectPath": "E:\\DotnetWorkspace\\Assignment\\WorkProject\\WorkProject.csproj",
+      "packagesPath": "C:\\Users\\oguzc\\.nuget\\packages\\",
+      "outputPath": "E:\\DotnetWorkspace\\Assignment\\WorkProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\oguzhan.cihan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oguzc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

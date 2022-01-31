@@ -61,6 +61,7 @@ namespace WorkProject
 
         public long ConvertToNumber(string numberString)
         {
+            
             Hashtable liste = new Hashtable();
             liste.Add("bir", "1");
             liste.Add("iki", "2");
@@ -90,16 +91,27 @@ namespace WorkProject
             liste.Add("sekizyüz", "800");
             liste.Add("dokuzyüz", "900");
             liste.Add("bin", "1000");
-            //string yeni = textBox1.Text.ToLower();
-            string[] bol = numberString.Split(' ');
-            int sayi = 0;
-            for (int i = 1; i <= bol.Length; i++)
-            {
 
-                sayi = int.Parse(liste[bol[i - 1]].ToString()) + sayi;
+
+            int sayi = 0;
+            try
+            {
+                string[] bol = numberString.Split(' ');
+                
+                for (int i = 1; i <= bol.Length; i++)
+                {
+
+                    sayi = int.Parse(liste[bol[i - 1]].ToString()) + sayi;
+                }
             }
-            
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+     
             return sayi;
+
         }
 
         public String ConvertToWord(int number)
@@ -111,62 +123,59 @@ namespace WorkProject
 
                 switch (number / 1000)
                 {
-                    case 9: numberString += ("Dokuz bin "); break;
-                    case 8: numberString += ("Sekiz bin "); break;
-                    case 7: numberString += ("Yedi bin "); break;
-                    case 6: numberString += ("Altı bin "); break;
-                    case 5: numberString += ("Beş bin "); break;
-                    case 4: numberString += ("Dört bin "); break;
-                    case 3: numberString += ("Üç bin "); break;
-                    case 2: numberString += ("İki bin "); break;
-                    case 1: numberString += ("Bin "); break;
+                    case 9: numberString += ("dokuz bin "); break;
+                    case 8: numberString += ("sekiz bin "); break;
+                    case 7: numberString += ("yedi bin "); break;
+                    case 6: numberString += ("altı bin "); break;
+                    case 5: numberString += ("beş bin "); break;
+                    case 4: numberString += ("dört bin "); break;
+                    case 3: numberString += ("üç bin "); break;
+                    case 2: numberString += ("iki bin "); break;
+                    case 1: numberString += ("bin "); break;
                 }
                 switch (number % 1000 / 100)
                 {
-                    case 9: numberString += ("Dokuz yüz "); break;
-                    case 8: numberString += ("Sekiz yüz "); break;
-                    case 7: numberString += ("Yedi yüz "); break;
-                    case 6: numberString += ("Altı yüz "); break;
-                    case 5: numberString += ("Beş yüz "); break;
-                    case 4: numberString += ("Dört yüz "); break;
-                    case 3: numberString += ("Üç yüz "); break;
-                    case 2: numberString += ("İki yüz "); break;
-                    case 1: numberString += ("Yüz "); break;
+                    case 9: numberString += ("dokuz yüz "); break;
+                    case 8: numberString += ("sekiz yüz "); break;
+                    case 7: numberString += ("yedi yüz "); break;
+                    case 6: numberString += ("altı yüz "); break;
+                    case 5: numberString += ("beş yüz "); break;
+                    case 4: numberString += ("dört yüz "); break;
+                    case 3: numberString += ("üç yüz "); break;
+                    case 2: numberString += ("iki yüz "); break;
+                    case 1: numberString += ("yüz "); break;
                 }
                 switch ((number % 100) / 10)
                 {
-                    case 9: numberString += ("Doksan "); break;
-                    case 8: numberString += ("Seksen "); break;
-                    case 7: numberString += ("Yetmiş "); break;
-                    case 6: numberString += ("Altmış "); break;
-                    case 5: numberString += ("Elli "); break;
-                    case 4: numberString += ("Kırk "); break;
-                    case 3: numberString += ("Otuz "); break;
-                    case 2: numberString += ("Yirmi "); break;
-                    case 1: numberString += ("On "); break;
+                    case 9: numberString += ("doksan "); break;
+                    case 8: numberString += ("seksen "); break;
+                    case 7: numberString += ("yetmiş "); break;
+                    case 6: numberString += ("altmış "); break;
+                    case 5: numberString += ("elli "); break;
+                    case 4: numberString += ("kırk "); break;
+                    case 3: numberString += ("otuz "); break;
+                    case 2: numberString += ("yirmi "); break;
+                    case 1: numberString += ("on "); break;
                 }
                 switch ((number % 10))
                 {
-                    case 9: numberString += ("Dokuz "); break;
-                    case 8: numberString += ("Sekiz "); break;
-                    case 7: numberString += ("Yedi "); break;
-                    case 6: numberString += ("Altı "); break;
-                    case 5: numberString += ("Beş "); break;
-                    case 4: numberString += ("Dört "); break;
-                    case 3: numberString += ("Üç "); break;
-                    case 2: numberString += ("İki "); break;
-                    case 1: numberString += ("Bir "); break;
+                    case 9: numberString += ("dokuz "); break;
+                    case 8: numberString += ("sekiz "); break;
+                    case 7: numberString += ("yedi "); break;
+                    case 6: numberString += ("altı "); break;
+                    case 5: numberString += ("beş "); break;
+                    case 4: numberString += ("dört "); break;
+                    case 3: numberString += ("üç "); break;
+                    case 2: numberString += ("iki "); break;
+                    case 1: numberString += ("bir "); break;
+                    case 0: numberString += ("sıfır"); break;
                 }
-                // textBox2.Text = numberString;
-
-               
 
             }
 
-            catch
-
+            catch(Exception exception)
             {
-
+                MessageBox.Show(exception.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
             return numberString;

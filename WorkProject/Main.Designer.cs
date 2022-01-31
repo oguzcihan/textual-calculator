@@ -1,6 +1,6 @@
 ﻿namespace WorkProject
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.txtFirstNumber = new System.Windows.Forms.TextBox();
             this.txtSecondNumber = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
@@ -40,6 +41,8 @@
             this.btnCarp = new System.Windows.Forms.Button();
             this.btnBol = new System.Windows.Forms.Button();
             this.lblLang = new System.Windows.Forms.LinkLabel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,14 +72,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Sonuç";
             // 
-            // label4
+            // lblStatus
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 251);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Status";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(231, 243);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(49, 20);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "Status";
             // 
             // txtFirstNumber
             // 
@@ -84,6 +87,7 @@
             this.txtFirstNumber.Name = "txtFirstNumber";
             this.txtFirstNumber.Size = new System.Drawing.Size(211, 27);
             this.txtFirstNumber.TabIndex = 4;
+            this.txtFirstNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstNumber_KeyPress);
             // 
             // txtSecondNumber
             // 
@@ -91,11 +95,13 @@
             this.txtSecondNumber.Name = "txtSecondNumber";
             this.txtSecondNumber.Size = new System.Drawing.Size(211, 27);
             this.txtSecondNumber.TabIndex = 5;
+            this.txtSecondNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondNumber_KeyPress);
             // 
             // txtResult
             // 
             this.txtResult.Location = new System.Drawing.Point(181, 115);
             this.txtResult.Name = "txtResult";
+            this.txtResult.ReadOnly = true;
             this.txtResult.Size = new System.Drawing.Size(211, 27);
             this.txtResult.TabIndex = 6;
             // 
@@ -117,6 +123,7 @@
             this.btnCikar.TabIndex = 8;
             this.btnCikar.Text = "Çıkar";
             this.btnCikar.UseVisualStyleBackColor = true;
+            this.btnCikar.Click += new System.EventHandler(this.btnCikar_Click);
             // 
             // btnCarp
             // 
@@ -126,6 +133,7 @@
             this.btnCarp.TabIndex = 9;
             this.btnCarp.Text = "Çarp";
             this.btnCarp.UseVisualStyleBackColor = true;
+            this.btnCarp.Click += new System.EventHandler(this.btnCarp_Click);
             // 
             // btnBol
             // 
@@ -135,6 +143,7 @@
             this.btnBol.TabIndex = 10;
             this.btnBol.Text = "Böl";
             this.btnBol.UseVisualStyleBackColor = true;
+            this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
             // 
             // lblLang
             // 
@@ -146,10 +155,15 @@
             this.lblLang.TabStop = true;
             this.lblLang.Text = "TR";
             // 
-            // Form1
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(545, 286);
             this.Controls.Add(this.lblLang);
             this.Controls.Add(this.btnBol);
@@ -159,12 +173,15 @@
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txtSecondNumber);
             this.Controls.Add(this.txtFirstNumber);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Main_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,7 +192,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
+        private Label lblStatus;
         private TextBox txtFirstNumber;
         private TextBox txtSecondNumber;
         private TextBox txtResult;
@@ -184,5 +201,6 @@
         private Button btnCarp;
         private Button btnBol;
         private LinkLabel lblLang;
+        private ErrorProvider errorProvider1;
     }
 }
