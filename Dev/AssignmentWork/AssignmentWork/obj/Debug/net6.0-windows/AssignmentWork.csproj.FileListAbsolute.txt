@@ -1,0 +1,17 @@
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\bin\Debug\net6.0-windows\AssignmentWork.exe
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\bin\Debug\net6.0-windows\AssignmentWork.deps.json
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\bin\Debug\net6.0-windows\AssignmentWork.runtimeconfig.json
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\bin\Debug\net6.0-windows\AssignmentWork.dll
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\bin\Debug\net6.0-windows\ref\AssignmentWork.dll
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\bin\Debug\net6.0-windows\AssignmentWork.pdb
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.csproj.AssemblyReference.cache
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.Main.resources
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.csproj.GenerateResource.cache
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.AssemblyInfoInputs.cache
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.AssemblyInfo.cs
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.csproj.CoreCompileInputs.cache
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.dll
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\ref\AssignmentWork.dll
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.pdb
+D:\DotnetWorkspace\AssignmentWork\AssignmentWork\obj\Debug\net6.0-windows\AssignmentWork.genruntimeconfig.cache

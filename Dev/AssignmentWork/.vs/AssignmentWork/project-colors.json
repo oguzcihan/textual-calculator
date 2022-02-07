@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1ff77afc-9d65-4fc1-87f6-c4b4c6ab8585": {
+      "ProjectGuid": "1ff77afc-9d65-4fc1-87f6-c4b4c6ab8585",
+      "DisplayName": "AssignmentWork",
+      "ColorIndex": 0
+    },
+    "d415e794-c527-48b2-9baa-0786fb448a07": {
+      "ProjectGuid": "d415e794-c527-48b2-9baa-0786fb448a07",
+      "DisplayName": "ConsoleApp1",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "609b672a-15d3-4daf-af06-4e3c8c9cdbea": {
+      "ProjectGuid": "609b672a-15d3-4daf-af06-4e3c8c9cdbea",
+      "DisplayName": "ConsoleApp2",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
