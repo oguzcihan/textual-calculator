@@ -50,6 +50,7 @@ namespace AssignmentProject
                 }
                 else
                 {
+                    errorProvider1.Clear();
                     var lang = cmbLang.SelectedItem.ToString(); //dil seçimi deðiþkene atandý
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
@@ -87,6 +88,7 @@ namespace AssignmentProject
                 }
                 else
                 {
+                    errorProvider1.Clear();
                     var lang = cmbLang.SelectedItem.ToString();
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
@@ -122,7 +124,8 @@ namespace AssignmentProject
                 }
                 else
                 {
-                    var lang = cmbLang.SelectedItem.ToString();
+                    errorProvider1.Clear();
+                   var lang = cmbLang.SelectedItem.ToString();
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
                     txtResult.Text = functionalityService.MultiplyProcess(); //üretilen nesneden MultiplyProcess metodu çaðrýldý.
@@ -157,6 +160,7 @@ namespace AssignmentProject
                 }
                 else
                 {
+                    errorProvider1.Clear();
                     var lang = cmbLang.SelectedItem.ToString();
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
@@ -194,11 +198,10 @@ namespace AssignmentProject
                 grpResult.Text = "Result";
                 grpLang.Text = "Language Selection";
                 grpUser.Text = "User Input";
-                lblNumberone.Location = new Point(44, 54);
-                lblNumbertwo.Location = new Point(17, 99);
-                txtFirstNumber.Location = new Point(164, 51);
-                txtSecondNumber.Location = new Point(164, 96);
-                //lblLangText.Location = new Point(17, 34);
+                lblNumberone.Location = new Point(94, 52);
+                lblNumbertwo.Location = new Point(67, 98);
+                txtFirstNumber.Location = new Point(213, 51);
+                txtSecondNumber.Location = new Point(213, 96);
 
 
             }
@@ -217,11 +220,10 @@ namespace AssignmentProject
                 grpResult.Text = "Sonuç";
                 grpLang.Text = "Dil Seçimi";
                 grpUser.Text = "Kullanýcý Giriþi";
-                lblNumberone.Location = new Point(52, 53);
-                lblNumbertwo.Location = new Point(61, 98);
-                txtFirstNumber.Location = new Point(155, 51);
-                txtSecondNumber.Location = new Point(155, 96);
-                //lblLangText.Location = new Point(71, 34);
+                lblNumberone.Location = new Point(108, 53);
+                lblNumbertwo.Location = new Point(117, 98);
+                txtFirstNumber.Location = new Point(213, 51);
+                txtSecondNumber.Location = new Point(213, 96);
 
             }
         }

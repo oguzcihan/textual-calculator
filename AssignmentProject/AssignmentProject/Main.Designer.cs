@@ -57,7 +57,7 @@
             this.btnDivide.FlatAppearance.BorderSize = 0;
             this.btnDivide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDivide.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDivide.Location = new System.Drawing.Point(376, 162);
+            this.btnDivide.Location = new System.Drawing.Point(454, 162);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(94, 39);
             this.btnDivide.TabIndex = 21;
@@ -71,7 +71,7 @@
             this.btnMultiply.FlatAppearance.BorderSize = 0;
             this.btnMultiply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMultiply.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMultiply.Location = new System.Drawing.Point(254, 162);
+            this.btnMultiply.Location = new System.Drawing.Point(332, 162);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(94, 39);
             this.btnMultiply.TabIndex = 20;
@@ -85,7 +85,7 @@
             this.btnSubtract.FlatAppearance.BorderSize = 0;
             this.btnSubtract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubtract.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSubtract.Location = new System.Drawing.Point(140, 162);
+            this.btnSubtract.Location = new System.Drawing.Point(218, 162);
             this.btnSubtract.Name = "btnSubtract";
             this.btnSubtract.Size = new System.Drawing.Size(94, 39);
             this.btnSubtract.TabIndex = 19;
@@ -99,7 +99,7 @@
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(21, 162);
+            this.btnAdd.Location = new System.Drawing.Point(99, 162);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 39);
             this.btnAdd.TabIndex = 18;
@@ -110,7 +110,7 @@
             // txtResult
             // 
             this.txtResult.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtResult.Location = new System.Drawing.Point(6, 57);
+            this.txtResult.Location = new System.Drawing.Point(85, 61);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.Size = new System.Drawing.Size(483, 30);
@@ -119,18 +119,18 @@
             // txtSecondNumber
             // 
             this.txtSecondNumber.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSecondNumber.Location = new System.Drawing.Point(155, 96);
+            this.txtSecondNumber.Location = new System.Drawing.Point(213, 96);
             this.txtSecondNumber.Name = "txtSecondNumber";
-            this.txtSecondNumber.Size = new System.Drawing.Size(275, 30);
+            this.txtSecondNumber.Size = new System.Drawing.Size(315, 30);
             this.txtSecondNumber.TabIndex = 16;
             this.txtSecondNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondNumber_KeyPress);
             // 
             // txtFirstNumber
             // 
             this.txtFirstNumber.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFirstNumber.Location = new System.Drawing.Point(155, 51);
+            this.txtFirstNumber.Location = new System.Drawing.Point(213, 51);
             this.txtFirstNumber.Name = "txtFirstNumber";
-            this.txtFirstNumber.Size = new System.Drawing.Size(275, 30);
+            this.txtFirstNumber.Size = new System.Drawing.Size(315, 30);
             this.txtFirstNumber.TabIndex = 15;
             this.txtFirstNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstNumber_KeyPress);
             // 
@@ -138,7 +138,7 @@
             // 
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStatus.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblStatus.Location = new System.Drawing.Point(6, 26);
+            this.lblStatus.Location = new System.Drawing.Point(85, 26);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(483, 23);
             this.lblStatus.TabIndex = 14;
@@ -149,7 +149,7 @@
             // 
             this.lblNumbertwo.AutoSize = true;
             this.lblNumbertwo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumbertwo.Location = new System.Drawing.Point(61, 98);
+            this.lblNumbertwo.Location = new System.Drawing.Point(117, 98);
             this.lblNumbertwo.Name = "lblNumbertwo";
             this.lblNumbertwo.Size = new System.Drawing.Size(95, 25);
             this.lblNumbertwo.TabIndex = 12;
@@ -159,7 +159,7 @@
             // 
             this.lblNumberone.AutoSize = true;
             this.lblNumberone.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumberone.Location = new System.Drawing.Point(52, 53);
+            this.lblNumberone.Location = new System.Drawing.Point(108, 53);
             this.lblNumberone.Name = "lblNumberone";
             this.lblNumberone.Size = new System.Drawing.Size(104, 25);
             this.lblNumberone.TabIndex = 11;
@@ -172,7 +172,7 @@
             this.grpResult.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpResult.Location = new System.Drawing.Point(12, 305);
             this.grpResult.Name = "grpResult";
-            this.grpResult.Size = new System.Drawing.Size(495, 113);
+            this.grpResult.Size = new System.Drawing.Size(634, 113);
             this.grpResult.TabIndex = 22;
             this.grpResult.TabStop = false;
             this.grpResult.Text = "Sonuç";
@@ -181,7 +181,7 @@
             // 
             this.lblLangText.AutoSize = true;
             this.lblLangText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLangText.Location = new System.Drawing.Point(57, 23);
+            this.lblLangText.Location = new System.Drawing.Point(68, 23);
             this.lblLangText.Name = "lblLangText";
             this.lblLangText.Size = new System.Drawing.Size(134, 20);
             this.lblLangText.TabIndex = 23;
@@ -196,7 +196,7 @@
             this.cmbLang.Items.AddRange(new object[] {
             "Türkçe",
             "English"});
-            this.cmbLang.Location = new System.Drawing.Point(321, 15);
+            this.cmbLang.Location = new System.Drawing.Point(450, 15);
             this.cmbLang.Name = "cmbLang";
             this.cmbLang.Size = new System.Drawing.Size(118, 28);
             this.cmbLang.TabIndex = 22;
@@ -219,7 +219,7 @@
             this.grpUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpUser.Location = new System.Drawing.Point(12, 71);
             this.grpUser.Name = "grpUser";
-            this.grpUser.Size = new System.Drawing.Size(495, 228);
+            this.grpUser.Size = new System.Drawing.Size(634, 228);
             this.grpUser.TabIndex = 23;
             this.grpUser.TabStop = false;
             this.grpUser.Text = "Kullanıcı Girişi";
@@ -230,7 +230,7 @@
             this.grpLang.Controls.Add(this.lblLangText);
             this.grpLang.Location = new System.Drawing.Point(12, 8);
             this.grpLang.Name = "grpLang";
-            this.grpLang.Size = new System.Drawing.Size(495, 57);
+            this.grpLang.Size = new System.Drawing.Size(634, 57);
             this.grpLang.TabIndex = 24;
             this.grpLang.TabStop = false;
             this.grpLang.Text = "Dil Seçimi";
@@ -240,7 +240,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(517, 431);
+            this.ClientSize = new System.Drawing.Size(658, 450);
             this.Controls.Add(this.grpLang);
             this.Controls.Add(this.grpUser);
             this.Controls.Add(this.grpResult);

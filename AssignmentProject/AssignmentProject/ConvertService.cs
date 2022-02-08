@@ -188,8 +188,8 @@ namespace AssignmentProject
                         stringNumbers += tensNumber[number / 10];
                         if ((number % 10) > 0)
                             //number değişkeni ile mod 10 da çıkan sonuç sıfırdan büyük ise bu eksili bir sayıyı ifade eder.
-                            //stringNumbers önüne - simgesi yazdırılır ve onesNumber dizisi ile number mod 10 işleminden çıkan sonucun metnini bulur.
-                            stringNumbers += "-" + onesNumber[number % 10];
+                            //stringNumbers önüne boşluk yazdırılır ve onesNumber dizisi ile number mod 10 işleminden çıkan sonucun metnini bulur.
+                            stringNumbers += " " + onesNumber[number % 10];
                     }
                 }
 
@@ -255,18 +255,18 @@ namespace AssignmentProject
 
             try
             {
+                //w+ kuralı ile bir veya daha fazla kelime ile eşleşme elde edildi.
                 var numbers = Regex.Matches(numberString, @"\w+").Cast<Match>()
                     .Select(e => e.Value.ToLowerInvariant())
                     .Where(o => numberTableTR.ContainsKey(o))
-                    .Select(o => numberTableTR[o]); 
+                    .Select(o => numberTableTR[o]);
 
                 int accumulator = 0, totalNumber = 0; //Hesaplamalar için iki değişken oluşturuldu.
-
                 foreach (var number in numbers) //numbers içindeki metnini tek tek almak için bir foreach döngüsü kullanıldı.
                 {
                     if (number >= 1000) //ilk kelimede olan sayı 1000'e eşit veya büyük ise if bloğu çalıştırıldı.
                     {
-                        if (number == 1000 && accumulator == 0)  
+                        if (number == 1000 && accumulator == 0)
                         {
                             //number değişkeni 1000'e eşit ise be accumulator sıfıra eşit ise bin metnini bulmak için accumulatore 1 değeri verildi.
                             accumulator = 1;
@@ -297,6 +297,9 @@ namespace AssignmentProject
                  * minus ifadesi yok ise sayı 1 ile çarpılıp geriye int olarak gönderildi.
                  * StringComparison.InvariantCultureIgnoreCase ile eksi ifadesi büyük küçük harfe duyarsız hale getirildi.
                  */
+
+
+
             }
             catch (Exception e)
             {

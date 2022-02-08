@@ -19,33 +19,36 @@ namespace AssignmentProject
             Language = language;
         }
 
-        private string _firstNumber;
-        private string _secondNumber;
-        private int _numberOne;
-        private int _numberTwo;
+        //Değişkenler tanımlandı
+        private int _firstNumber;
+        private int _secondNumber;
         public string AddProcess()
         {
-            
+
             try
             {
                 string result = "";
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
 
-                    _firstNumber = ConvertToNumbersTr(FirstString).ToString(); //metin olarak ConvertToNumbersTr'ye gönderildi.
-                    _secondNumber = ConvertToNumbersTr(SecondString).ToString();//metin olarak ConvertToNumbersTr'ye gönderildi.
-                    
-                    //ConvertToNumbersTr'den gelen sayılar integer türüne dönüştürüldü.
-                    _numberOne = int.Parse(_firstNumber); 
-                    _numberTwo = int.Parse(_secondNumber);
+                    _firstNumber = ConvertToNumbersTr(FirstString);//metin olarak ConvertToNumbersTr'ye gönderildi.
+                    _secondNumber = ConvertToNumbersTr(SecondString);//metin olarak ConvertToNumbersTr'ye gönderildi.
 
+                    //if (_firstNumber == -1 || _secondNumber == -1)
+                    //{
+                    //    MessageBox.Show("oldu");
+
+                    //}
+
+                    //ConvertToNumbersTr'den gelen sayılar integer türüne dönüştürüldü.
                     int total; //toplam için bir total değişkeni tanımlandı
                     checked
                     {
                         //sayibir ve sayiiki nin toplamının Int max ve Min'i geçmemesi için checked bloğu kullanıldı.
-                        total = _numberOne + _numberTwo;
+                        total = _firstNumber + _secondNumber;
                     }
                     result = NumberToWordsTr(total); //total değişkeni NumberToWordsTr'ye metne dönüşmek üzere gönderildi.
+
                 }
                 else
                 {
@@ -54,16 +57,13 @@ namespace AssignmentProject
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
 
-                    _firstNumber = ConvertToNumbersEn(FirstString).ToString(); //metin olarak ConvertToNumbersEn metoduna gönderildi.
-                    _secondNumber = ConvertToNumbersEn(SecondString).ToString();
-
-                    _numberOne = int.Parse(_firstNumber);
-                    _numberTwo = int.Parse(_secondNumber);
+                    _firstNumber = ConvertToNumbersEn(FirstString); //metin olarak ConvertToNumbersEn metoduna gönderildi.
+                    _secondNumber = ConvertToNumbersEn(SecondString);
 
                     int total;
                     checked
                     {
-                        total = _numberOne + _numberTwo;
+                        total = _firstNumber + _secondNumber;
                     }
                     result = NumberToWordsEn(total);
                 }
@@ -81,25 +81,22 @@ namespace AssignmentProject
 
         public string SubtractProcess()
         {
-          
+
             try
             {
                 string result = "";
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
 
-                     
-                    _firstNumber = ConvertToNumbersTr(FirstString).ToString(); //gönderilen firstnumber değeri alındı
-                    _secondNumber = ConvertToNumbersTr(SecondString).ToString(); //gönderilen secondnumber değeri alındı
 
-                    _numberOne = int.Parse(_firstNumber);
-                    _numberTwo = int.Parse(_secondNumber);
+                    _firstNumber = ConvertToNumbersTr(FirstString); //gönderilen firstnumber değeri alındı
+                    _secondNumber = ConvertToNumbersTr(SecondString); //gönderilen secondnumber değeri alındı
                     int total;
 
                     checked
                     {
                         //sayibir ve sayiiki'nin çıkarma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
-                        total = _numberOne - _numberTwo;
+                        total = _firstNumber - _secondNumber;
                     }
                     if (total < 0)
                     {
@@ -125,16 +122,13 @@ namespace AssignmentProject
                      *Türkçe dilinde yapılan işlemlerin aynısı bu blokta da yapıldı.
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
-                    _firstNumber = ConvertToNumbersTr(FirstString).ToString(); //gönderilen firstnumber değeri alındı
-                    _secondNumber = ConvertToNumbersTr(SecondString).ToString();
-
-                    _numberOne = int.Parse(_firstNumber);
-                    _numberTwo = int.Parse(_secondNumber);
+                    _firstNumber = ConvertToNumbersTr(FirstString); //gönderilen firstnumber değeri alındı
+                    _secondNumber = ConvertToNumbersTr(SecondString);
                     int total;
-                    
+
                     checked
                     {
-                         total= _numberOne - _numberTwo;
+                        total = _firstNumber - _secondNumber;
                     }
                     if (total < 0)
                     {
@@ -172,18 +166,15 @@ namespace AssignmentProject
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
 
-                    _firstNumber = ConvertToNumbersTr(FirstString).ToString(); //metin olarak ConvertToNumbersTr'ye gönderildi.
-                    _secondNumber = ConvertToNumbersTr(SecondString).ToString();
-
-                    _numberOne = int.Parse(_firstNumber);
-                    _numberTwo = int.Parse(_secondNumber);
+                    _firstNumber = ConvertToNumbersTr(FirstString); //metin olarak ConvertToNumbersTr'ye gönderildi.
+                    _secondNumber = ConvertToNumbersTr(SecondString);
                     int total;
 
                     checked
                     {
                         //sayibir ve sayiiki'nin çarpma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
 
-                        total = _numberOne * _numberTwo;
+                        total = _firstNumber * _secondNumber;
                     }
                     result = NumberToWordsTr(total);
 
@@ -195,16 +186,13 @@ namespace AssignmentProject
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
 
-                    _firstNumber = ConvertToNumbersEn(FirstString).ToString();
-                    _secondNumber = ConvertToNumbersEn(SecondString).ToString();
-
-                    _numberOne = int.Parse(_firstNumber);
-                    _numberTwo = int.Parse(_secondNumber);
+                    _firstNumber = ConvertToNumbersEn(FirstString);
+                    _secondNumber = ConvertToNumbersEn(SecondString);
                     int total;
 
                     checked
                     {
-                        total = _numberOne * _numberTwo;
+                        total = _firstNumber * _secondNumber;
                     }
                     result = NumberToWordsEn(total);
                 }
@@ -226,8 +214,8 @@ namespace AssignmentProject
 
             try
             {
-                string result = ""; 
-                
+                string result = "";
+
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
                     string txtFirst = FirstString; //gönderilen firstnumber değeri alındı
@@ -248,16 +236,14 @@ namespace AssignmentProject
                         try
                         {
                             //birinciSayi ConvertToNumbersTr metoduna gönderildi.
-                            _firstNumber = ConvertToNumbersTr(txtFirst).ToString(); 
-                            _secondNumber= ConvertToNumbersTr(txtSecond).ToString();
-                            _numberOne= int.Parse(_firstNumber);
-                            _numberTwo= int.Parse(_secondNumber);
+                            _firstNumber = ConvertToNumbersTr(txtFirst);
+                            _secondNumber = ConvertToNumbersTr(txtSecond);
                             int total;
 
                             checked
                             {
                                 //Oluşacak bir Int Max Min değer aşımı kontrolü yapıldı.
-                                total = _numberOne / _numberTwo;
+                                total = _firstNumber / _secondNumber;
                             }
 
                             result = NumberToWordsTr(total); //sonuç NumberToWordsTr metoduna gönderiildi
@@ -289,15 +275,13 @@ namespace AssignmentProject
                     }
                     else
                     {
-                        _firstNumber = ConvertToNumbersEn(txtFirst).ToString();
-                        _secondNumber = ConvertToNumbersEn(txtSecond).ToString();
-                        _numberOne = int.Parse(_firstNumber);
-                        _numberTwo = int.Parse(_secondNumber);
+                        _firstNumber = ConvertToNumbersEn(txtFirst);
+                        _secondNumber = ConvertToNumbersEn(txtSecond);
                         int total;
 
                         checked
                         {
-                            total = _numberOne / _numberTwo;
+                            total = _firstNumber / _secondNumber;
                         }
 
                         result = NumberToWordsEn(total);
