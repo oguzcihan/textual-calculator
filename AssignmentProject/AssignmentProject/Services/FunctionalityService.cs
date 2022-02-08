@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AssignmentProject
+namespace AssignmentProject.Services
 {
     public class FunctionalityService : ConvertService //ConvertService classından kalıtım alındı
     {

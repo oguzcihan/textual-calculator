@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace AssignmentProject
+namespace AssignmentProject.Services
 {
     public class ConvertService
     {
