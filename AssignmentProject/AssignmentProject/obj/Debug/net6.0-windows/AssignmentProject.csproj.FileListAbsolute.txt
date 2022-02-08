@@ -72,7 +72,6 @@ C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\bi
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\bin\Debug\net6.0-windows\AssignmentProject.dll
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\bin\Debug\net6.0-windows\ref\AssignmentProject.dll
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\bin\Debug\net6.0-windows\AssignmentProject.pdb
-C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.csproj.AssemblyReference.cache
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.Main.resources
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.csproj.GenerateResource.cache
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.GeneratedMSBuildEditorConfig.editorconfig
