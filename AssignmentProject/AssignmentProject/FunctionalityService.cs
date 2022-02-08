@@ -19,31 +19,36 @@ namespace AssignmentProject
             Language = language;
         }
 
+        //Değişkenler tanımlandı
+        private int _firstNumber;
+        private int _secondNumber;
         public string AddProcess()
         {
-            
+
             try
             {
                 string result = "";
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
-                    string birinciMetin = FirstString; //gönderilen firstnumber değeri alındı
-                    string birinciSayi = ConvertToNumbersTr(birinciMetin).ToString(); //metin olarak ConvertToNumbersTr'ye gönderildi.
 
-                    string ikinciMetin = SecondString; //gönderilen secondnumber değeri alındı
-                    string ikinciSayi = ConvertToNumbersTr(ikinciMetin).ToString();//metin olarak ConvertToNumbersTr'ye gönderildi.
-                    
+                    _firstNumber = ConvertToNumbersTr(FirstString);//metin olarak ConvertToNumbersTr'ye gönderildi.
+                    _secondNumber = ConvertToNumbersTr(SecondString);//metin olarak ConvertToNumbersTr'ye gönderildi.
+
+                    //if (_firstNumber == -1 || _secondNumber == -1)
+                    //{
+                    //    MessageBox.Show("oldu");
+
+                    //}
+
                     //ConvertToNumbersTr'den gelen sayılar integer türüne dönüştürüldü.
-                    int sayibir = int.Parse(birinciSayi); 
-                    int sayiiki = int.Parse(ikinciSayi);
-
                     int total; //toplam için bir total değişkeni tanımlandı
                     checked
                     {
                         //sayibir ve sayiiki nin toplamının Int max ve Min'i geçmemesi için checked bloğu kullanıldı.
-                        total = sayibir + sayiiki;
+                        total = _firstNumber + _secondNumber;
                     }
                     result = NumberToWordsTr(total); //total değişkeni NumberToWordsTr'ye metne dönüşmek üzere gönderildi.
+
                 }
                 else
                 {
@@ -52,18 +57,13 @@ namespace AssignmentProject
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
 
-                    string birinciMetin = FirstString;
-                    string birinciSayi = ConvertToNumbersEn(birinciMetin).ToString(); //metin olarak ConvertToNumbersEn metoduna gönderildi.
-                    string ikinciMetin = SecondString;
-                    string ikinciSayi = ConvertToNumbersEn(ikinciMetin).ToString();
-
-                    int sayibir = int.Parse(birinciSayi);
-                    int sayiiki = int.Parse(ikinciSayi);
+                    _firstNumber = ConvertToNumbersEn(FirstString); //metin olarak ConvertToNumbersEn metoduna gönderildi.
+                    _secondNumber = ConvertToNumbersEn(SecondString);
 
                     int total;
                     checked
                     {
-                        total = sayibir + sayiiki;
+                        total = _firstNumber + _secondNumber;
                     }
                     result = NumberToWordsEn(total);
                 }
@@ -81,33 +81,29 @@ namespace AssignmentProject
 
         public string SubtractProcess()
         {
-          
+
             try
             {
                 string result = "";
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
 
-                    string birinciMetin = FirstString;  //gönderilen firstnumber değeri alındı
-                    string birinciSayi = ConvertToNumbersTr(birinciMetin).ToString();
-                    string ikinciMetin = SecondString;  //gönderilen secondnumber değeri alındı
-                    string ikinciSayi = ConvertToNumbersTr(ikinciMetin).ToString();
 
-                    int sayibir = int.Parse(birinciSayi);
-                    int sayiiki = int.Parse(ikinciSayi);
+                    _firstNumber = ConvertToNumbersTr(FirstString); //gönderilen firstnumber değeri alındı
+                    _secondNumber = ConvertToNumbersTr(SecondString); //gönderilen secondnumber değeri alındı
                     int total;
 
                     checked
                     {
                         //sayibir ve sayiiki'nin çıkarma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
-                        total = sayibir - sayiiki;
+                        total = _firstNumber - _secondNumber;
                     }
                     if (total < 0)
                     {
                         //eğer total sıfırdan küçük ise başına eksi yazdırmak için bu alan oluşturuldu.
-                        string toplam = total.ToString(); //total string'e dönüştürülüp bir toplam değişkenine atıldı.
-                        toplam = toplam.Substring(1); //toplam değişkeninin '-' simgesi kesildi.
-                        result = "eksi " + NumberToWordsTr(int.Parse(toplam)); //sonuç içine 'eksi' olarak yazdırılıp NumberToWordsTr metoduna gönderildi.
+                        string totalString = total.ToString(); //total string'e dönüştürülüp bir toplam değişkenine atıldı.
+                        totalString = totalString.Substring(1); //toplam değişkeninin '-' simgesi kesildi.
+                        result = "eksi " + NumberToWordsTr(int.Parse(totalString)); //sonuç içine 'eksi' olarak yazdırılıp NumberToWordsTr metoduna gönderildi.
                     }
                     else if (total == 0)
                     {
@@ -126,24 +122,19 @@ namespace AssignmentProject
                      *Türkçe dilinde yapılan işlemlerin aynısı bu blokta da yapıldı.
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
-                    string birinciMetin = FirstString;
-                    string birinciSayi = ConvertToNumbersEn(birinciMetin).ToString();
-                    string ikinciMetin = SecondString;
-                    string ikinciSayi = ConvertToNumbersEn(ikinciMetin).ToString();
-
-                    int sayibir = int.Parse(birinciSayi);
-                    int sayiiki = int.Parse(ikinciSayi);
+                    _firstNumber = ConvertToNumbersTr(FirstString); //gönderilen firstnumber değeri alındı
+                    _secondNumber = ConvertToNumbersTr(SecondString);
                     int total;
-                    
+
                     checked
                     {
-                         total=sayibir - sayiiki;
+                        total = _firstNumber - _secondNumber;
                     }
                     if (total < 0)
                     {
-                        string toplam = total.ToString();
-                        toplam = toplam.Substring(1);
-                        result = "eksi " + NumberToWordsEn(int.Parse(toplam));
+                        string totalString = total.ToString();
+                        totalString = totalString.Substring(1);
+                        result = "eksi " + NumberToWordsEn(int.Parse(totalString));
                     }
                     else if (total == 0)
                     {
@@ -174,21 +165,16 @@ namespace AssignmentProject
                 string result = "";
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
-                    string birinciMetin = FirstString; //gönderilen firstnumber değeri alındı
-                    string birinciSayi = ConvertToNumbersTr(birinciMetin).ToString(); //metin olarak ConvertToNumbersTr'ye gönderildi.
 
-                    string ikinciMetin = SecondString;
-                    string ikinciSayi = ConvertToNumbersTr(ikinciMetin).ToString();
-
-                    int sayibir = int.Parse(birinciSayi);
-                    int sayiiki = int.Parse(ikinciSayi);
+                    _firstNumber = ConvertToNumbersTr(FirstString); //metin olarak ConvertToNumbersTr'ye gönderildi.
+                    _secondNumber = ConvertToNumbersTr(SecondString);
                     int total;
 
                     checked
                     {
                         //sayibir ve sayiiki'nin çarpma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
 
-                        total = sayibir * sayiiki;
+                        total = _firstNumber * _secondNumber;
                     }
                     result = NumberToWordsTr(total);
 
@@ -200,19 +186,13 @@ namespace AssignmentProject
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
 
-                    string birinciMetin = FirstString;
-                    string birinciSayi = ConvertToNumbersEn(birinciMetin).ToString();
-
-                    string ikinciMetin = SecondString;
-                    string ikinciSayi = ConvertToNumbersEn(ikinciMetin).ToString();
-
-                    int sayibir = int.Parse(birinciSayi);
-                    int sayiiki = int.Parse(ikinciSayi);
+                    _firstNumber = ConvertToNumbersEn(FirstString);
+                    _secondNumber = ConvertToNumbersEn(SecondString);
                     int total;
 
                     checked
                     {
-                        total = sayibir * sayiiki;
+                        total = _firstNumber * _secondNumber;
                     }
                     result = NumberToWordsEn(total);
                 }
@@ -234,18 +214,18 @@ namespace AssignmentProject
 
             try
             {
-                string result = ""; 
-                
+                string result = "";
+
                 if (Language == "Türkçe") //dilin Türkçe olduğu kontrol ettirildi
                 {
-                    string birinciMetin = FirstString; //gönderilen firstnumber değeri alındı
-                    string ikinciMetin = SecondString; //gönderilen secondnumber değeri alındı
-                    if (birinciMetin == "sıfır" && ikinciMetin == "sıfır")
+                    string txtFirst = FirstString; //gönderilen firstnumber değeri alındı
+                    string txtSecond = SecondString; //gönderilen secondnumber değeri alındı
+                    if (txtFirst == "sıfır" && txtSecond == "sıfır")
                     {
                         //gelen değerler içinden iki değerde sıfır ise geriye sıfır sonucu döndürüldü.
                         result = "Sıfır";
                     }
-                    else if (ikinciMetin == "sıfır")
+                    else if (txtSecond == "sıfır")
                     {
                         //gelen değerler içinden sadece ikincisayi sıfır ise bölüm durumunda tanımsızlık olacağı için 'Tanımsız' sonucu geri döndürüldü.
                         result = "Tanımsız";
@@ -256,16 +236,14 @@ namespace AssignmentProject
                         try
                         {
                             //birinciSayi ConvertToNumbersTr metoduna gönderildi.
-                            string birinciSayi = ConvertToNumbersTr(birinciMetin).ToString(); 
-                            string ikinciSayi = ConvertToNumbersTr(ikinciMetin).ToString();
-                            int sayibir = int.Parse(birinciSayi);
-                            int sayiiki = int.Parse(ikinciSayi);
+                            _firstNumber = ConvertToNumbersTr(txtFirst);
+                            _secondNumber = ConvertToNumbersTr(txtSecond);
                             int total;
 
                             checked
                             {
                                 //Oluşacak bir Int Max Min değer aşımı kontrolü yapıldı.
-                                total = sayibir / sayiiki;
+                                total = _firstNumber / _secondNumber;
                             }
 
                             result = NumberToWordsTr(total); //sonuç NumberToWordsTr metoduna gönderiildi
@@ -285,27 +263,25 @@ namespace AssignmentProject
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
 
-                    string birinciMetin = FirstString;
-                    string ikinciMetin = SecondString;
-                    if (birinciMetin == "sıfır" && ikinciMetin == "sıfır")
+                    string txtFirst = FirstString; //gönderilen firstnumber değeri alındı
+                    string txtSecond = SecondString; //gönderilen secondnumber değeri alındı
+                    if (txtFirst == "sıfır" && txtSecond == "sıfır")
                     {
                         result = "Sıfır";
                     }
-                    else if (ikinciMetin == "sıfır")
+                    else if (txtSecond == "sıfır")
                     {
                         result = "Tanımsız";
                     }
                     else
                     {
-                        string birinciSayi = ConvertToNumbersEn(birinciMetin).ToString();
-                        string ikinciSayi = ConvertToNumbersEn(ikinciMetin).ToString();
-                        int sayibir = int.Parse(birinciSayi);
-                        int sayiiki = int.Parse(ikinciSayi);
+                        _firstNumber = ConvertToNumbersEn(txtFirst);
+                        _secondNumber = ConvertToNumbersEn(txtSecond);
                         int total;
 
                         checked
                         {
-                            total = sayibir / sayiiki;
+                            total = _firstNumber / _secondNumber;
                         }
 
                         result = NumberToWordsEn(total);
