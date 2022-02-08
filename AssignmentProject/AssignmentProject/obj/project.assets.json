@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\oguzhan.cihan\\.nuget\\packages\\": {}
+    "C:\\Users\\oguzc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oguzhan.cihan\\Desktop\\Assignment\\AssignmentProject\\AssignmentProject\\AssignmentProject.csproj",
+      "projectUniqueName": "E:\\DotnetWorkspace\\Assignment\\AssignmentProject\\AssignmentProject\\AssignmentProject.csproj",
       "projectName": "AssignmentProject",
-      "projectPath": "C:\\Users\\oguzhan.cihan\\Desktop\\Assignment\\AssignmentProject\\AssignmentProject\\AssignmentProject.csproj",
-      "packagesPath": "C:\\Users\\oguzhan.cihan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oguzhan.cihan\\Desktop\\Assignment\\AssignmentProject\\AssignmentProject\\obj\\",
+      "projectPath": "E:\\DotnetWorkspace\\Assignment\\AssignmentProject\\AssignmentProject\\AssignmentProject.csproj",
+      "packagesPath": "C:\\Users\\oguzc\\.nuget\\packages\\",
+      "outputPath": "E:\\DotnetWorkspace\\Assignment\\AssignmentProject\\AssignmentProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\oguzhan.cihan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oguzc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

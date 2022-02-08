@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace AssignmentProject.Services
 {
-    public class FunctionalityService : ConvertService //ConvertService classından kalıtım alındı
+    public class FunctionalityService : ConvertService //ConvertService Class'ından inherit edildi.
     {
         private string FirstString { get; set; }
         private string SecondString { get; set; }
         private string Language { get; set; }
         public FunctionalityService(string firstString, string secondString, string language)
         {
-            //veriler constructor ile injection yapıldı.
+            //Veriler constructor ile injection yapıldı.
             FirstString = firstString;
             SecondString = secondString;
             Language = language;
@@ -33,18 +33,10 @@ namespace AssignmentProject.Services
 
                     _firstNumber = ConvertToNumbersTr(FirstString);//metin olarak ConvertToNumbersTr'ye gönderildi.
                     _secondNumber = ConvertToNumbersTr(SecondString);//metin olarak ConvertToNumbersTr'ye gönderildi.
-
-                    //if (_firstNumber == -1 || _secondNumber == -1)
-                    //{
-                    //    MessageBox.Show("oldu");
-
-                    //}
-
-                    //ConvertToNumbersTr'den gelen sayılar integer türüne dönüştürüldü.
                     int total; //toplam için bir total değişkeni tanımlandı
                     checked
                     {
-                        //sayibir ve sayiiki nin toplamının Int max ve Min'i geçmemesi için checked bloğu kullanıldı.
+                        //_firstNumber ve _secondNumber toplamının Int max ve Min'i geçmemesi için checked bloğu kullanıldı.
                         total = _firstNumber + _secondNumber;
                     }
                     result = NumberToWordsTr(total); //total değişkeni NumberToWordsTr'ye metne dönüşmek üzere gönderildi.
@@ -73,8 +65,9 @@ namespace AssignmentProject.Services
             catch (Exception e)
             {
                 //Genel bir Exception türü kullanıldı.
-                Console.WriteLine(e);
-                throw;
+                Console.WriteLine(e.Message);
+                MessageBox.Show(e.Message.ToString());
+                return null;
             }
 
         }
@@ -95,7 +88,7 @@ namespace AssignmentProject.Services
 
                     checked
                     {
-                        //sayibir ve sayiiki'nin çıkarma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
+                        //_firstNumber ve _secondNumber çıkarma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
                         total = _firstNumber - _secondNumber;
                     }
                     if (total < 0)
@@ -122,8 +115,8 @@ namespace AssignmentProject.Services
                      *Türkçe dilinde yapılan işlemlerin aynısı bu blokta da yapıldı.
                      *Farklı metod olarak ConvertToNumbersEn kullanıldı
                      */
-                    _firstNumber = ConvertToNumbersTr(FirstString); //gönderilen firstnumber değeri alındı
-                    _secondNumber = ConvertToNumbersTr(SecondString);
+                    _firstNumber = ConvertToNumbersEn(FirstString); //gönderilen firstnumber değeri alındı
+                    _secondNumber = ConvertToNumbersEn(SecondString);
                     int total;
 
                     checked
@@ -172,7 +165,7 @@ namespace AssignmentProject.Services
 
                     checked
                     {
-                        //sayibir ve sayiiki'nin çarpma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
+                        //_firstNumber ve _secondNumber çarpma işlemi Int max ve Int min değerlerini geçmemesi için checked bloğu kullanıldı
 
                         total = _firstNumber * _secondNumber;
                     }

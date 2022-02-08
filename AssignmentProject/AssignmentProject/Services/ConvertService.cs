@@ -34,7 +34,7 @@ namespace AssignmentProject.Services
          int min=-2147483648
          */
 
-        private static Dictionary<string, int> numberTableEN = new()
+        private static Dictionary<string, int> numberTableEn = new()
         {
             //İngilizce dili için bir Dictionary oluşturuldu.
             { "zero", 0 },
@@ -72,6 +72,44 @@ namespace AssignmentProject.Services
             { "billion", 1000000000 }
         };
 
+        private static Dictionary<string, int> numberTableTr = new()
+        {
+            //Türkçe dili için Dictionary oluşturuldu
+            { "sıfır", 0 },
+            { "bir", 1 },
+            { "iki", 2 },
+            { "üç", 3 },
+            { "dört", 4 },
+            { "beş", 5 },
+            { "altı", 6 },
+            { "yedi", 7 },
+            { "sekiz", 8 },
+            { "dokuz", 9 },
+            { "on", 10 },
+            { "on bir", 11 },
+            { "on iki", 12 },
+            { "on üç", 13 },
+            { "on dört", 14 },
+            { "on beş", 15 },
+            { "on altı", 16 },
+            { "on yedi", 17 },
+            { "on sekiz", 18 },
+            { "on dokuz", 19 },
+            { "yirmi", 20 },
+            { "otuz", 30 },
+            { "kırk", 40 },
+            { "elli", 50 },
+            { "altmış", 60 },
+            { "yetmiş", 70 },
+            { "seksen", 80 },
+            { "doksan", 90 },
+            { "yüz", 100 },
+            { "bin", 1000 },
+            { "on bin", 100000 },
+            { "milyon", 1000000 },
+            { "milyar", 1000000000 }
+
+        };
         public static int ConvertToNumbersEn(string numberString)
         {
             //Ingilizce dili için tazılan metni sayıya çeviren algoritma yazıldı.
@@ -85,15 +123,28 @@ namespace AssignmentProject.Services
                  */
                 var numbers = Regex.Matches(numberString, @"\w+").Cast<Match>()
                     .Select(m => m.Value.ToLowerInvariant())
-                    .Where(v => numberTableEN.ContainsKey(v))
-                    .Select(v => numberTableEN[v]);
+                    .Where(v => numberTableEn.ContainsKey(v))
+                    .Select(v => numberTableEn[v]);
                 int accumulator = 0, total = 0; //Hesaplamalar için iki değişken oluşturuldu.
 
                 foreach (var number in numbers) //numbers içindeki metnini tek tek almak için bir foreach döngüsü kullanıldı.
                 {
-
-                    if (number >= 1000) //ilk kelimede olan sayı 1000'e eşit veya büyük ise if bloğu çalıştırıldı.
+                    if (number >= 1000000000)
                     {
+                        //billion
+                        accumulator = 1;
+                        total += accumulator * number;
+                        accumulator = 0;
+                    }
+                    else if (number >= 1000000)
+                    {
+                        //million
+                        total += accumulator * number;
+                        accumulator = 0;
+                    }
+                    else if (number >= 1000) //ilk kelimede olan sayı 1000'e eşit veya büyük ise if bloğu çalıştırıldı.
+                    {
+                        //thousand
                         total += accumulator * number; //acc değeri ile number değeri çarpılıp total değişkenine eklendi.
                         accumulator = 0; //acc içini tekrar kullanabilmek için 0 değeri atandı.
                     }
@@ -189,7 +240,7 @@ namespace AssignmentProject.Services
                         if ((number % 10) > 0)
                             //number değişkeni ile mod 10 da çıkan sonuç sıfırdan büyük ise bu eksili bir sayıyı ifade eder.
                             //stringNumbers önüne boşluk yazdırılır ve onesNumber dizisi ile number mod 10 işleminden çıkan sonucun metnini bulur.
-                            stringNumbers += " " + onesNumber[number % 10];
+                            stringNumbers += " and " + onesNumber[number % 10];
                     }
                 }
 
@@ -203,46 +254,7 @@ namespace AssignmentProject.Services
             }
 
         }
-
-        private static Dictionary<string, int> numberTableTR = new()
-        {
-            //Türkçe dili için Dictionary oluşturuldu
-            { "sıfır", 0 },
-            { "bir", 1 },
-            { "iki", 2 },
-            { "üç", 3 },
-            { "dört", 4 },
-            { "beş", 5 },
-            { "altı", 6 },
-            { "yedi", 7 },
-            { "sekiz", 8 },
-            { "dokuz", 9 },
-            { "on", 10 },
-            { "on bir", 11 },
-            { "on iki", 12 },
-            { "on üç", 13 },
-            { "on dört", 14 },
-            { "on beş", 15 },
-            { "on altı", 16 },
-            { "on yedi", 17 },
-            { "on sekiz", 18 },
-            { "on dokuz", 19 },
-            { "yirmi", 20 },
-            { "otuz", 30 },
-            { "kırk", 40 },
-            { "elli", 50 },
-            { "altmış", 60 },
-            { "yetmiş", 70 },
-            { "seksen", 80 },
-            { "doksan", 90 },
-            { "yüz", 100 },
-            { "bin", 1000 },
-            { "on bin", 100000 },
-            { "milyon", 1000000 },
-            { "milyar", 1000000000 }
-
-        };
-        public static int ConvertToNumbersTr(string numberString)
+        public static int ConvertToNumbersTr(string numberString) 
         {
 
             /*
@@ -252,14 +264,43 @@ namespace AssignmentProject.Services
              * Bulunan değer Select ile numbers değişkeni içine atıldı.
              *
             */
+           
+            string[] words = numberString.Split(" ");
+            if (words.Length > 1)
+            {
+                for (int i = 0; i < words.Length - 1; i++)
+                {
+
+                    if (words[i] == words[i + 1])
+                    {
+                        //exception
+                        throw new Exception("Error");
+
+                    }
+                    
+                }
+
+            }
+
+            for (int a = 0; a < words.Length; a++)
+            {
+                int value;
+                bool keyExists = numberTableTr.TryGetValue(words[a], out value);
+                if (!keyExists)
+                {
+                    throw new Exception("Erorr");
+                }
+            }
+
+
 
             try
             {
                 //w+ kuralı ile bir veya daha fazla kelime ile eşleşme elde edildi.
                 var numbers = Regex.Matches(numberString, @"\w+").Cast<Match>()
                     .Select(e => e.Value.ToLowerInvariant())
-                    .Where(o => numberTableTR.ContainsKey(o))
-                    .Select(o => numberTableTR[o]);
+                    .Where(o => numberTableTr.ContainsKey(o))
+                    .Select(o => numberTableTr[o]);
 
                 int accumulator = 0, totalNumber = 0; //Hesaplamalar için iki değişken oluşturuldu.
                 foreach (var number in numbers) //numbers içindeki metnini tek tek almak için bir foreach döngüsü kullanıldı.
@@ -309,7 +350,6 @@ namespace AssignmentProject.Services
             }
 
         }
-
         public static string NumberToWordsTr(int number)
         {
             /*

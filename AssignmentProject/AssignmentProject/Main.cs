@@ -12,7 +12,7 @@ namespace AssignmentProject
 
         private void txtFirstNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //sadece metin giriþi
+            //numara giriþine kapatýldý
             e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)
                                                   && !char.IsSeparator(e.KeyChar);
         }
@@ -27,18 +27,18 @@ namespace AssignmentProject
         private void Main_Load(object sender, EventArgs e)
         {
             lblStatus.Text = "";
-            cmbLang.SelectedIndex = 0; //geçerli dil türkçe
+            cmbLang.SelectedIndex = 0; //Geçerli dil Türkçe
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //textbox kontrol
+            //Textbox kontrol
             //Toplama iþlemi butonu
             try
             {
                 if (txtFirstNumber.Text == "" && txtSecondNumber.Text == "")
                 {
-                    //textbox'lar boþ olma durumu hata gönderildi
+                    //Textbox'lar boþ olma durumu hata gönderildi
                     errorProvider1.SetError(txtFirstNumber, "Zorunlu Alan");
                     errorProvider1.SetError(txtSecondNumber, "Zorunlu Alan");
                 }
@@ -57,7 +57,6 @@ namespace AssignmentProject
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
                     txtResult.Text = functionalityService.AddProcess(); //üretilen nesneden AddProcess metodu çaðrýldý.
-                    lblStatus.Text = "Toplama Ýþlemi Baþarýlý."; //status label'ýna iþlem özeti gönderildi.
                 }
             }
             catch (ArithmeticException exception)
@@ -95,7 +94,6 @@ namespace AssignmentProject
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
                     txtResult.Text = functionalityService.SubtractProcess(); //üretilen nesneden SubtractProcess metodu çaðrýldý.
-                    lblStatus.Text = "Çýkarma Ýþlemi Baþarýlý.";
                 }
             }
             catch (ArithmeticException exception)
@@ -131,7 +129,6 @@ namespace AssignmentProject
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
                     txtResult.Text = functionalityService.MultiplyProcess(); //üretilen nesneden MultiplyProcess metodu çaðrýldý.
-                    lblStatus.Text = "Çarpma Ýþlemi Baþarýlý.";
                 }
             }
             catch (ArithmeticException exception)
@@ -167,7 +164,6 @@ namespace AssignmentProject
                     FunctionalityService functionalityService = new FunctionalityService(txtFirstNumber.Text, txtSecondNumber.Text, lang);
                     // firstnumber, secondnumber FunctionalityService classýna nesne aracýlýðý ile gönderildi.
                     txtResult.Text = functionalityService.DivideProcess(); //üretilen nesneden MultiplyProcess metodu çaðrýldý.
-                    lblStatus.Text = "Bölme Ýþlemi Baþarýlý.";
                 }
             }
             catch (ArithmeticException exception)
