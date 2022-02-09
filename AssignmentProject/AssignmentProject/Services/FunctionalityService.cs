@@ -22,9 +22,9 @@ namespace AssignmentProject.Services
         //Değişkenler tanımlandı
         private int _firstNumber;
         private int _secondNumber;
-        public string AddProcess()
+        public string? AddProcess()
         {
-
+            //null değer gelebileceğini belirtmek için ? kullanıldı.
             try
             {
                 string result = "";
@@ -62,17 +62,20 @@ namespace AssignmentProject.Services
 
                 return result; //bulunan sonuç değerleri result değişkeni ile Main class'ına tekrar dönüş yapacaktır.
             }
-            catch (Exception e)
+            catch (ArithmeticException arithmeticException)
             {
-                //Genel bir Exception türü kullanıldı.
-                Console.WriteLine(e.Message);
-                MessageBox.Show(e.Message.ToString());
+                MessageBox.Show(arithmeticException.Message.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
 
         }
 
-        public string SubtractProcess()
+        public string? SubtractProcess()
         {
 
             try
@@ -141,17 +144,23 @@ namespace AssignmentProject.Services
 
                 return result;
             }
-            catch (Exception e)
+            catch (ArithmeticException arithmeticException)
             {
-                //Exception olarak genel bir tür kullanıldı.
-                Console.WriteLine(e);
-                throw;
+
+                Console.WriteLine(arithmeticException.Message);
+                MessageBox.Show(arithmeticException.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
 
         }
 
-        public string MultiplyProcess()
+        public string? MultiplyProcess()
         {
             try
             {
@@ -192,17 +201,23 @@ namespace AssignmentProject.Services
 
                 return result;
             }
-            catch (Exception e)
+            catch (ArithmeticException arithmeticException)
             {
-                //Exception türü olarak genel bir tür kullanıldı.
-                Console.WriteLine(e);
-                throw;
+
+                Console.WriteLine(arithmeticException.Message);
+                MessageBox.Show(arithmeticException.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
 
         }
 
-        public string DivideProcess()
+        public string? DivideProcess()
         {
 
             try
@@ -283,11 +298,17 @@ namespace AssignmentProject.Services
 
                 return result;
             }
-            catch (Exception e)
+            catch (ArithmeticException arithmeticException)
             {
-                //Genel bir tür Exception kullanıldı.
-                Console.WriteLine(e);
-                throw;
+
+                Console.WriteLine(arithmeticException.Message);
+                MessageBox.Show(arithmeticException.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
 
 

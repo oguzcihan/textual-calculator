@@ -110,8 +110,226 @@ namespace AssignmentProject.Services
             { "milyar", 1000000000 }
 
         };
+        public static int ConvertToNumbersTr(string numberString)
+        {
+
+            /*
+             * FunctionalityService'den gelen numberString değeri Regex.Matches ile numberTableTR Dictionary sinde aratıldı.
+             * Select ile gönderilen metin m.Value.ToLowerInvariant() büyük küçük harfa karşı duyarsız hale getirildi.
+             * Where ile numberTableTR Dictionary sinde ContainsKey özelliği ile yazılan metne ait sayı arandı.
+             * Bulunan değer Select ile numbers değişkeni içine atıldı.
+             *
+            */
+
+            //Ardışık gelen sayıların kontrolü yapıldı. Ardışık gelirse Exception fırlatır.
+            string[] words = numberString.Split(" ");
+            if (words.Length > 1)
+            {
+                for (int i = 0; i < words.Length - 1; i++)
+                {
+
+                    if (words[i] == words[i + 1])
+                    {
+                        //exception
+                        throw new Exception("Lütfen geçerli bir sözdizimi giriniz.");
+
+                    }
+
+                }
+
+            }
+
+            //Dictionary içindeki sayılar kontrol ettirildi. Sayı yoksa Exception fırlatır.
+            for (int a = 0; a < words.Length; a++)
+            {
+                int value;
+                bool keyExists = numberTableTr.TryGetValue(words[a], out value);
+                if (!keyExists)
+                {
+                    throw new Exception("Lütfen geçerli bir metin giriniz!");
+                }
+            }
+
+
+
+            try
+            {
+                //w+ kuralı ile bir veya daha fazla kelime ile eşleşme elde edildi.
+                var numbers = Regex.Matches(numberString, @"\w+").Cast<Match>()
+                    .Select(e => e.Value.ToLowerInvariant())
+                    .Where(o => numberTableTr.ContainsKey(o))
+                    .Select(o => numberTableTr[o]);
+
+                int accumulator = 0, totalNumber = 0; //Hesaplamalar için iki değişken oluşturuldu.
+                foreach (var number in numbers) //numbers içindeki metnini tek tek almak için bir foreach döngüsü kullanıldı.
+                {
+                    checked
+                    {
+                        if (number >= 1000) //ilk kelimede olan sayı 1000'e eşit veya büyük ise if bloğu çalıştırıldı.
+                        {
+                            if (number == 1000 && accumulator == 0)
+                            {
+                                //number değişkeni 1000'e eşit ise be accumulator sıfıra eşit ise bin metnini bulmak için accumulatore 1 değeri verildi.
+                                accumulator = 1;
+                            }
+                            //if içinde ki şartlardan sonra buradan devam edecek.
+                            totalNumber += accumulator * number; //accumalator ile number değeri çarpıldı ve totalNumber değişkenine atıldı
+                            accumulator = 0; //accumulator değişkeni diğer işlemler için tekrardan sıfır değeri atıldı
+                        }
+                        else if (number >= 100) //ilk kelimede olan sayı 100'e eşit veya büyük ise if bloğu çalıştırıldı.
+                        {
+                            if (number == 100 && accumulator == 0)
+                            {
+                                //number değişkeni 100'e eşit ise be accumulator sıfıra eşit ise yüz metnini bulmak için accumulatore 1 değeri verildi.
+                                accumulator = 1;
+                            }
+                            accumulator *= number; //accumulator ile number değeri çarpıldı accumulator içine atıldı.
+                        }
+
+                        else
+                            accumulator += number; //farklı gelen sayılar için accumulator ve number değeri toplantı accumulator içine atıldı.
+                    }
+                }
+                return (totalNumber + accumulator) * (numberString.StartsWith("eksi",
+                    StringComparison.InvariantCultureIgnoreCase) ? -1 : 1);
+
+                /*
+                 * return olarak ise total değişkeni ve accumulator değişkeni toplandı daha sonra
+                 * metnin ilk kelimesi eksi ile başlıyorsa sayı -1 ile çarpıldı.
+                 * minus ifadesi yok ise sayı 1 ile çarpılıp geriye int olarak gönderildi.
+                 * StringComparison.InvariantCultureIgnoreCase ile eksi ifadesi büyük küçük harfe duyarsız hale getirildi.
+                 */
+
+
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error " + e.Message);
+            }
+
+        }
+        public static string NumberToWordsTr(int number)
+        {
+            /*
+             * NumberToWordsEn metodunda olan işlemler ile aynı işlemleri yapmaktadır.
+             * Burada sayıların Türkçe metinleri bulunmaktadır.
+             * number ile gelen değerler Türkçe metne çevrilip geriye bir string göndermektedir.
+             *
+             */
+            try
+            {
+                //türkçe sayıdan metne çevirme kodu
+                if (number == 0)
+                    return "sıfır";
+
+                if (number < 0)
+                    return "eksi " + NumberToWordsTr(Math.Abs(number));
+
+                var stringNumbers = "";
+
+                if (number / 1000000000 > 0)
+                {
+                    stringNumbers += NumberToWordsTr(number / 1000000000) + " milyar ";
+                    number %= 1000000000;
+                }
+                if ((number / 1000000) > 0)
+                {
+                    stringNumbers += NumberToWordsTr(number / 1000000) + " milyon ";
+                    number %= 1000000;
+                }
+
+                if ((number / 1000) == 1)
+                {
+                    /*
+                     * Eğer sayının bine bölümünden sonuç 1 çıkarsa bu blog çalışır ve stringNumbers değişkenine bin yazılır.
+                     * number içindeki değer ise 1000 ile mod alınır ve çıkan sonuç number değişkeni içine yazılır.
+                     * 
+                     */
+                    stringNumbers += " bin ";
+                    number %= 1000;
+
+                }
+                if ((number / 1000) > 1)
+                {
+                    stringNumbers += NumberToWordsTr(number / 1000) + " bin ";
+                    number %= 1000;
+                }
+
+                if ((number / 100) == 1)
+                {
+                    /*
+                    * Eğer sayının yüze bölümünden sonuç 1 çıkarsa bu blog çalışır ve stringNumbers değişkenine bin yazılır.
+                    * number içindeki değer ise 100 ile mod alınır ve çıkan sonuç number değişkeni içine yazılır.
+                    * 
+                    */
+                    stringNumbers += " yüz ";
+                    number %= 100;
+                }
+
+                if ((number / 100) > 1)
+                {
+                    stringNumbers += NumberToWordsTr(number / 100) + " yüz ";
+                    number %= 100;
+                }
+
+                if (number > 0)
+                {
+                    var onesNumber = new[] { "sıfır", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz", "on", "on bir", "on iki", "on üç", "on dört", "on beş", "on altı", "on yedi", "on sekiz", "on dokuz" };
+                    var tensNumber = new[] { "sıfır", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan", "yüz" };
+
+                    if (number < 20)
+                        stringNumbers += onesNumber[number];
+                    else
+                    {
+                        stringNumbers += tensNumber[number / 10];
+                        if ((number % 10) > 0)
+                            stringNumbers += " " + onesNumber[number % 10];
+                    }
+                }
+
+                return stringNumbers; //çıkan sonuç geriye gönderilir.
+
+            }
+            catch (Exception e)
+            {
+                //Exception türü genel olarak ayarlandı.
+                Console.WriteLine(e);
+                throw;
+            }
+
+        }
         public static int ConvertToNumbersEn(string numberString)
         {
+
+            string[] words = numberString.Split(" ");
+            if (words.Length > 1)
+            {
+                for (int i = 0; i < words.Length - 1; i++)
+                {
+
+                    if (words[i] == words[i + 1])
+                    {
+                        //exception
+                        throw new Exception("Please enter a valid syntax.");
+
+                    }
+
+                }
+
+            }
+
+            for (int a = 0; a < words.Length; a++)
+            {
+                int value;
+                bool keyExists = numberTableEn.TryGetValue(words[a], out value);
+                if (!keyExists)
+                {
+                    throw new Exception("Please enter valid text!");
+                }
+            }
+
+
             //Ingilizce dili için tazılan metni sayıya çeviren algoritma yazıldı.
             try
             {
@@ -215,7 +433,15 @@ namespace AssignmentProject.Services
                 if ((number / 100) > 0)
                 {
                     stringNumbers += NumberToWordsEn(number / 100) + " hundred ";
-                    number %= 100;
+
+                    //100 e bölümünden kalan sıfır değilse sonunda 'and' ekler.
+                    //Kalan sıfıra eşitse 'and' koymadan devam eder.
+                    if (number % 100 != 0)
+                    {
+                        stringNumbers += "and ";
+                    }
+
+                    number %= 100; //100 e bölümünden kalanı alır diğer sayıları tespit eder.
                 }
 
                 if (number > 0)
@@ -249,192 +475,6 @@ namespace AssignmentProject.Services
             catch (Exception e)
             {
                 //Genel bir Exception kullanıldı.
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }
-        public static int ConvertToNumbersTr(string numberString) 
-        {
-
-            /*
-             * FunctionalityService'den gelen numberString değeri Regex.Matches ile numberTableTR Dictionary sinde aratıldı.
-             * Select ile gönderilen metin m.Value.ToLowerInvariant() büyük küçük harfa karşı duyarsız hale getirildi.
-             * Where ile numberTableTR Dictionary sinde ContainsKey özelliği ile yazılan metne ait sayı arandı.
-             * Bulunan değer Select ile numbers değişkeni içine atıldı.
-             *
-            */
-           
-            string[] words = numberString.Split(" ");
-            if (words.Length > 1)
-            {
-                for (int i = 0; i < words.Length - 1; i++)
-                {
-
-                    if (words[i] == words[i + 1])
-                    {
-                        //exception
-                        throw new Exception("Error");
-
-                    }
-                    
-                }
-
-            }
-
-            for (int a = 0; a < words.Length; a++)
-            {
-                int value;
-                bool keyExists = numberTableTr.TryGetValue(words[a], out value);
-                if (!keyExists)
-                {
-                    throw new Exception("Erorr");
-                }
-            }
-
-
-
-            try
-            {
-                //w+ kuralı ile bir veya daha fazla kelime ile eşleşme elde edildi.
-                var numbers = Regex.Matches(numberString, @"\w+").Cast<Match>()
-                    .Select(e => e.Value.ToLowerInvariant())
-                    .Where(o => numberTableTr.ContainsKey(o))
-                    .Select(o => numberTableTr[o]);
-
-                int accumulator = 0, totalNumber = 0; //Hesaplamalar için iki değişken oluşturuldu.
-                foreach (var number in numbers) //numbers içindeki metnini tek tek almak için bir foreach döngüsü kullanıldı.
-                {
-                    if (number >= 1000) //ilk kelimede olan sayı 1000'e eşit veya büyük ise if bloğu çalıştırıldı.
-                    {
-                        if (number == 1000 && accumulator == 0)
-                        {
-                            //number değişkeni 1000'e eşit ise be accumulator sıfıra eşit ise bin metnini bulmak için accumulatore 1 değeri verildi.
-                            accumulator = 1;
-                        }
-                        //if içinde ki şartlardan sonra buradan devam edecek.
-                        totalNumber += accumulator * number; //accumalator ile number değeri çarpıldı ve totalNumber değişkenine atıldı
-                        accumulator = 0; //accumulator değişkeni diğer işlemler için tekrardan sıfır değeri atıldı
-                    }
-                    else if (number >= 100) //ilk kelimede olan sayı 100'e eşit veya büyük ise if bloğu çalıştırıldı.
-                    {
-                        if (number == 100 && accumulator == 0)
-                        {
-                            //number değişkeni 100'e eşit ise be accumulator sıfıra eşit ise yüz metnini bulmak için accumulatore 1 değeri verildi.
-                            accumulator = 1;
-                        }
-                        accumulator *= number; //accumulator ile number değeri çarpıldı accumulator içine atıldı.
-                    }
-
-                    else
-                        accumulator += number; //farklı gelen sayılar için accumulator ve number değeri toplantı accumulator içine atıldı.
-                }
-                return (totalNumber + accumulator) * (numberString.StartsWith("eksi",
-                    StringComparison.InvariantCultureIgnoreCase) ? -1 : 1);
-
-                /*
-                 * return olarak ise total değişkeni ve accumulator değişkeni toplandı daha sonra
-                 * metnin ilk kelimesi eksi ile başlıyorsa sayı -1 ile çarpıldı.
-                 * minus ifadesi yok ise sayı 1 ile çarpılıp geriye int olarak gönderildi.
-                 * StringComparison.InvariantCultureIgnoreCase ile eksi ifadesi büyük küçük harfe duyarsız hale getirildi.
-                 */
-
-
-
-            }
-            catch (Exception e)
-            {
-                //Exception genel türü kullanıldı.
-                Console.WriteLine(e);
-                throw;
-            }
-
-        }
-        public static string NumberToWordsTr(int number)
-        {
-            /*
-             * NumberToWordsEn metodunda olan işlemler ile aynı işlemleri yapmaktadır.
-             * Burada sayıların Türkçe metinleri bulunmaktadır.
-             * number ile gelen değerler Türkçe metne çevrilip geriye bir string göndermektedir.
-             *
-             */
-            try
-            {
-                //türkçe sayıdan metne çevirme kodu
-                if (number == 0)
-                    return "sıfır";
-
-                if (number < 0)
-                    return "eksi " + NumberToWordsTr(Math.Abs(number));
-
-                var stringNumbers = "";
-
-                if (number / 1000000000 > 0)
-                {
-                    stringNumbers += NumberToWordsTr(number / 1000000000) + " milyar ";
-                    number %= 1000000000;
-                }
-                if ((number / 1000000) > 0)
-                {
-                    stringNumbers += NumberToWordsTr(number / 1000000) + " milyon ";
-                    number %= 1000000;
-                }
-
-                if ((number / 1000) == 1)
-                {
-                    /*
-                     * Eğer sayının bine bölümünden sonuç 1 çıkarsa bu blog çalışır ve stringNumbers değişkenine bin yazılır.
-                     * number içindeki değer ise 1000 ile mod alınır ve çıkan sonuç number değişkeni içine yazılır.
-                     * 
-                     */
-                    stringNumbers += " bin ";
-                    number %= 1000;
-
-                }
-                if ((number / 1000) > 1)
-                {
-                    stringNumbers += NumberToWordsTr(number / 1000) + " bin ";
-                    number %= 1000;
-                }
-
-                if ((number / 100) == 1)
-                {
-                    /*
-                    * Eğer sayının yüze bölümünden sonuç 1 çıkarsa bu blog çalışır ve stringNumbers değişkenine bin yazılır.
-                    * number içindeki değer ise 100 ile mod alınır ve çıkan sonuç number değişkeni içine yazılır.
-                    * 
-                    */
-                    stringNumbers += " yüz ";
-                    number %= 100;
-                }
-
-                if ((number / 100) > 1)
-                {
-                    stringNumbers += NumberToWordsTr(number / 100) + " yüz ";
-                    number %= 100;
-                }
-
-                if (number > 0)
-                {
-                    var onesNumber = new[] { "sıfır", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz", "on", "on bir", "on iki", "on üç", "on dört", "on beş", "on altı", "on yedi", "on sekiz", "on dokuz" };
-                    var tensNumber = new[] { "sıfır", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan", "yüz" };
-
-                    if (number < 20)
-                        stringNumbers += onesNumber[number];
-                    else
-                    {
-                        stringNumbers += tensNumber[number / 10];
-                        if ((number % 10) > 0)
-                            stringNumbers += " " + onesNumber[number % 10];
-                    }
-                }
-
-                return stringNumbers; //çıkan sonuç geriye gönderilir.
-
-            }
-            catch (Exception e)
-            {
-                //Exception türü genel olarak ayarlandı.
                 Console.WriteLine(e);
                 throw;
             }

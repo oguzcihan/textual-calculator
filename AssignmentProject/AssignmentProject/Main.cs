@@ -62,7 +62,7 @@ namespace AssignmentProject
             catch (ArithmeticException exception)
             {
                 //ArithmeticException ile Int Max ve Min deðerleri aþýmý yakalandý.
-                Console.WriteLine(exception.StackTrace);
+                Console.WriteLine(exception.Message);
                 MessageBox.Show("Int Max/Min deðeri aþýldý", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 

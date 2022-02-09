@@ -245,7 +245,6 @@
             this.Controls.Add(this.grpUser);
             this.Controls.Add(this.grpResult);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
