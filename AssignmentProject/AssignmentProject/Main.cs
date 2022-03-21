@@ -1,3 +1,4 @@
+using AssignmentProject.Resources;
 using AssignmentProject.Services;
 
 namespace AssignmentProject
@@ -10,6 +11,11 @@ namespace AssignmentProject
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtFirstNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             //numara giriþine kapatýldý
@@ -30,6 +36,11 @@ namespace AssignmentProject
             cmbLang.SelectedIndex = 0; //Geçerli dil Türkçe
         }
 
+        /// <summary>
+        /// buton eklendi.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Textbox kontrol
@@ -103,7 +114,6 @@ namespace AssignmentProject
             }
 
         }
-
         private void btnMultiply_Click(object sender, EventArgs e)
         {
             //Çarpma iþlemi butonuna basýldýðýnda;
@@ -138,7 +148,6 @@ namespace AssignmentProject
             }
             
         }
-
         private void btnDivide_Click(object sender, EventArgs e)
         {
             //Bölme iþlemi butonuna basýldýðýnda;
@@ -187,7 +196,7 @@ namespace AssignmentProject
                 txtSecondNumber.Clear();
                 txtResult.Clear();
                 btnAdd.Text = "Add";
-                btnSubtract.Text = "Subtract ";
+                btnSubtract.Text = "Substract";
                 btnMultiply.Text = "Multiply";
                 btnDivide.Text = "Divide";
                 lblLangText.Text = "Current Language: "+"English";
@@ -201,14 +210,13 @@ namespace AssignmentProject
                 txtFirstNumber.Location = new Point(213, 51);
                 txtSecondNumber.Location = new Point(213, 96);
 
-
             }
             else
             {
                 txtFirstNumber.Clear();
                 txtSecondNumber.Clear();
                 txtResult.Clear();
-                btnAdd.Text = "Topla";
+                btnAdd.Text = AppResource.btnSubstract;
                 btnSubtract.Text = "Çýkar ";
                 btnMultiply.Text = "Çarp ";
                 btnDivide.Text = "Böl ";

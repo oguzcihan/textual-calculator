@@ -83,3 +83,4 @@ C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\ob
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.pdb
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.genruntimeconfig.cache
 C:\Users\oguzhan.cihan\Desktop\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.csproj.AssemblyReference.cache
+E:\DotnetWorkspace\Assignment\AssignmentProject\AssignmentProject\obj\Debug\net6.0-windows\AssignmentProject.Resources.AppResource.resources

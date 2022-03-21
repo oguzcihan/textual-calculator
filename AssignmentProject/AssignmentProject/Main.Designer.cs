@@ -85,9 +85,9 @@
             this.btnSubtract.FlatAppearance.BorderSize = 0;
             this.btnSubtract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubtract.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSubtract.Location = new System.Drawing.Point(218, 162);
+            this.btnSubtract.Location = new System.Drawing.Point(209, 162);
             this.btnSubtract.Name = "btnSubtract";
-            this.btnSubtract.Size = new System.Drawing.Size(94, 39);
+            this.btnSubtract.Size = new System.Drawing.Size(108, 39);
             this.btnSubtract.TabIndex = 19;
             this.btnSubtract.Text = "Çıkar";
             this.btnSubtract.UseVisualStyleBackColor = false;

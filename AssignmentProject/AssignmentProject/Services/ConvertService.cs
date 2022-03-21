@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace AssignmentProject.Services
 {
     public class ConvertService
     {
+        
         /*
 
         - Uygulamanın temel amacı yazı olarak girilen iki sayı ile dört işlem yapmak ve sonucu yine yazılı olarak göstermektir.
@@ -34,6 +29,12 @@ namespace AssignmentProject.Services
          int min=-2147483648
          */
 
+
+        #region Dictionary Elements
+        /// <summary>
+        /// <param>İngilizce sayılar Dictionary'si</param>
+        /// Yazılabilir.
+        /// </summary>
         private static Dictionary<string, int> numberTableEn = new()
         {
             //İngilizce dili için bir Dictionary oluşturuldu.
@@ -71,6 +72,7 @@ namespace AssignmentProject.Services
             { "million", 1000000 },
             { "billion", 1000000000 }
         };
+        #endregion
 
         private static Dictionary<string, int> numberTableTr = new()
         {
@@ -110,6 +112,12 @@ namespace AssignmentProject.Services
             { "milyar", 1000000000 }
 
         };
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numberString"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static int ConvertToNumbersTr(string numberString)
         {
 
